@@ -18,7 +18,6 @@ app.use('/api/user', authRoute);
 app.use('/api/cards', cardsRouter);
 
 // Connect to DB
-
 process.env.MONGO_URI &&
   mongoose.connect(
     process.env.MONGO_URI,
