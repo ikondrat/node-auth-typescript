@@ -8,7 +8,10 @@ Simple auth api example with jwt token
 ## Install
 Run `npm i` and `npm run start`
 
-## Run
+## Run development mode
+Run `npm run dev`
+
+## Run production mode
 Run `npm run start`
 
 
