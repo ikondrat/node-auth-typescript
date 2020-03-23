@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "start": "nodemon",
+    "lint": "eslint . --ext .js,.ts,"
   },
   "keywords": [],
   "author": "",

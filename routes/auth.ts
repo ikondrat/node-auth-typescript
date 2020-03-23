@@ -47,12 +47,13 @@ router.post('/login', async (req, res) => {
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) return res.status(400).send('Invalid password');
 
-  if (!process.env.TOKEN_SECRET)
-    return res.status(400).send('No secret defined');
-  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+  const secret = process.env.TOKEN_SECRET;
+  if (!secret) return res.status(400).send('Secret is not defined');
+  const token = jwt.sign({ _id: user._id }, secret);
 
   res.header('auth-token', token).send(token);
   res.send('Logged in');
+  return res.status(400).send('No secret defined');
 });
 
 export default router;
