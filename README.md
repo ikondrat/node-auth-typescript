@@ -5,8 +5,8 @@ Simple auth api example with jwt token
 * [Latest Node LTS](https://nodejs.org/en/)
 * Defined variables in .env, check [.env.example](./.env.example)
  
-## Install
-Run `npm i` and `npm run start`
+## Install dependencies
+Run `npm i`
 
 ## Run development mode
 Run `npm run dev`
