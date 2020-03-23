@@ -10,7 +10,8 @@ export default (
   res: Response,
   next: NextFunction
 ): void | Response<string> => {
-  const token = req.header('auth-token');
+  const auth = req.header('Authorization');
+  const token = auth?.split(' ')?.[1];
   if (!token) return res.status(400).send('Access denied');
 
   const secret = process.env.TOKEN_SECRET;
