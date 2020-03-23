@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc",
-    "start": "tsc && node build/index.js",
-    "lint": "eslint . --ext .js,.ts,"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 {
-  "watch": ["**/*.ts", "*.ts"],
+  "watch": ["src/**/*.ts"],
   "ext": "ts",
   "inspect": true,
   "ignore": ["**/*.spec.ts"],
-  "exec": "node --inspect=7000 -r ts-node/register ./index.ts"
+  "exec": "node --inspect=7000 -r ts-node/register ./src/index.ts"
 }
