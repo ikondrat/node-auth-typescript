@@ -10,9 +10,10 @@ export const validateRegistration = (
     password: Joi.string().min(6).required(),
   }).validate(registrationDate);
 
-export const validateLogin = (loginData: User): ValidationResult =>
+export const validateLogin = (
+  loginData: Pick<User, 'email' | 'password'>
+): ValidationResult =>
   Joi.object({
-    name: Joi.string().min(6).required(),
     email: Joi.string().min(6).required().email(),
     password: Joi.string().min(6).required(),
   }).validate(loginData);

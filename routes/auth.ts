@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import User from '../model/User';
 import bcrypt from 'bcryptjs';
-import { validateRegistration } from '../validation';
+import { validateRegistration, validateLogin } from '../validation';
 
 const router = Router();
 
@@ -35,8 +35,18 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login');
+router.post('/login', async (req, res) => {
+  const { error } = validateLogin(req.body);
+  if (error) return res.status(400).send(error?.details[0].message);
 
-router.get('/login', (req, res) => res.send('login'));
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  if (!user) return res.status(400).send('Email or password is wrong');
+
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  if (!validPassword) return res.status(400).send('Invalid password');
+
+  res.send('Logged in');
+});
 
 export default router;
