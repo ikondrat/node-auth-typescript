@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import User from '../model/User';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { validateRegistration, validateLogin } from '../validation';
 
 const router = Router();
@@ -46,6 +47,11 @@ router.post('/login', async (req, res) => {
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) return res.status(400).send('Invalid password');
 
+  if (!process.env.TOKEN_SECRET)
+    return res.status(400).send('No secret defined');
+  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+
+  res.header('auth-token', token).send(token);
   res.send('Logged in');
 });
 
