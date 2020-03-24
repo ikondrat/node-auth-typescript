@@ -2,7 +2,8 @@ import Joi, { ValidationResult } from '@hapi/joi';
 import { User } from './model/User';
 
 export const validateRegistration = (
-  registrationDate: User
+  registrationDate: Pick<User, 'name' | 'email' | 
+  'password'>
 ): ValidationResult =>
   Joi.object({
     name: Joi.string().min(6).required(),
