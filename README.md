@@ -1,4 +1,4 @@
-# Node auth example
+# GraphQL auth api with JWT
 Simple auth api example with jwt token
 
 ## Prerequisites
