@@ -3,5 +3,5 @@
   "ext": "ts",
   "inspect": true,
   "ignore": ["**/*.spec.ts"],
-  "exec": "node --inspect=7000 -r ts-node/register ./src/index.ts"
+  "exec": "node -r ts-node/register ./src/index.ts"
 }

@@ -6,6 +6,7 @@ import typeDefs from './data/typeDefs';
 import resolvers from './data/resolvers';
 import { User } from './model/User';
 
+const PORT = process.env.PORT || 3001;
 // config env
 dotenv.config();
 
@@ -34,7 +35,7 @@ if (process.env.MONGO_URI) {
     },
   });
 
-  server.listen().then(({ url }) => {
+  server.listen(PORT).then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
   });
 }
