@@ -18,7 +18,7 @@
     "@types/jsonwebtoken": "^8.3.8",
     "@types/mongoose": "^5.7.7",
     "@types/node": "^13.9.3",
-    "apollo-server": "^2.11.0",
+    "apollo-server": "^2.14.2",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "graphql": "^14.6.0",
